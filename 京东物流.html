@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge">
+        <title>京东物流-有速度更有温暖</title>
+        <style type="text/css">
+            .box1{
+		        width:400px;
+		        height:40px;
+		        border:2px solid red;
+		        margin:auto;
+	        }
+            .input{
+		        float:left;
+	        	width:300px;
+	        	height:38px;
+	        	outline:none;
+	        	border:none;
+	        }
+            .button1{
+	            float:left;
+	            width:92px;
+	            height:38px;
+	            color:white;
+	            background-color:red;
+	            border:none;
+	            outline:none;
+            }
+           .nav{
+                padding: 10px;
+                background-size:cover;
+                background-color: red;
+            }
+            .nav li{
+                list-style: none;
+                display: inline;
+                padding: 70px;
+            }
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            .box{
+                position: relative;
+                width: 1500px;
+                height: 550px;
+                margin: 10px auto;
+            }
+            li{
+                list-style: none;
+            }
+            img{
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+            .bottom{
+                position: absolute;
+                bottom: 0;
+                width: 1000px;
+                height: 80px;
+                background-color: transparent;
+            }
+            p{
+                color: white;
+                margin: 10px;
+            }
+            .bottom li{
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: transparent;
+                float: left;
+                margin-top: 10px;
+                margin-left: 10px;
+            }
+            .light{
+                transform: scale(1.5);
+            }
+            .arrow{
+                position: absolute;
+                right: 0;
+                top: 17px;
+                text-align: center;
+                color: white;
+            }
+            .last,
+            .next{
+                background-color: transparent;
+                padding: 3px 6px;
+                margin-right: 5px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <span class="pic"><img src="https://storage.360buyimg.com/market-manager/diy2-1696648889276-image.jpg" alt=""></span>
+            <span class="bottom">
+                <span class="title"></span>
+                <li class="'light"></li>
+                <li></li>
+                <div class="arrow">
+                    <span class="last">&lt;</span>
+                    <span class="next">&lt;</span>
+                </div>
+            </span>
+        </div>
+        <script>
+            const sliderDate =[
+                {url:'https://storage.360buyimg.com/market-manager/diy2-1696648889276-image.jpg'},
+        ]
+            let i=0
+            const pic=document.querySelector('img')
+            const title=document.querySelector('title p')
+            const color=document.querySelector('.bottom')
+            const next=document.querySelector('next')
+            next.addEventListener('click',function(){
+                i++
+                if(i>=sliderDate.length){
+                    i=0
+                }
+                common()
+            })
+            const last=document.querySelector('.last')
+            last.addEventListener('click',function(){
+                i--
+                if(i<0){
+                    i=7
+                }
+                common()
+            })
+            function common(){
+                pic.src=sliderDate[i].url
+                title.innerHTML=sliderDate[i].title
+                color.style.backgroundColor=sliderDate[i].color
+                const point1=document.querySelector('li:nth-of-typr(${i+1})')
+                point1.classList.add('light')
+            }
+            let timerId=setInterval(function(){
+                next.click()
+            },1000)
+            const box=document.querySelector('.box')
+            box.addEventListener('mouseenter',function(){
+                clearInterval(timerId)
+            })
+            box.addEventListener('mouseleave',function(){
+                clearInterval(timerId)
+                timerId=setInterval(function(){
+                    next.click()
+                },500)
+            })
+        </script>
+        <div class="box1">
+            <input type="text" class="input" placeholder="请输入运单号或包裹号">
+            <input type="button1" value="立即查询" class="button1">
+        </div>
+        <br>
+        <header>
+            <nav>
+                <div class="nav">
+                    <ul>
+                        <li><a href="file:///H:/%E4%BA%AC%E4%B8%9C%E7%89%A9%E6%B5%81/%E7%AE%80%E4%BB%8B/%E4%BA%AC%E4%B8%9C%E7%89%A9%E6%B5%81.html">Home page</a></li>
+                        <li><a href="file:///H:/%E4%BA%AC%E4%B8%9C%E7%89%A9%E6%B5%81/%E4%BC%98%E5%8A%BF/%E4%BA%AC%E4%B8%9C%E7%89%A9%E6%B5%81%E4%BC%98%E5%8A%BF.html">Advantage</a></li>
+                        <li><a href="file:///H:/%E4%BA%AC%E4%B8%9C%E7%89%A9%E6%B5%81/%E5%AF%84%E5%BF%AB%E9%80%92/%E5%AF%84%E5%BF%AB%E9%80%92.html">Express delivery</a></li>
+                        <li><a href="file:///H:/%E4%BA%AC%E4%B8%9C%E7%89%A9%E6%B5%81/%E8%BF%90%E8%BE%93/%E8%BF%90%E8%BE%93%E5%B7%A5%E5%85%B7.html">Means of tttransport</a></li>
+                        <li><a href="file:///H:/%E4%BA%AC%E4%B8%9C%E7%89%A9%E6%B5%81/%E8%AF%84%E4%BB%B7/CSS%E5%A4%9A%E5%BD%A9%E6%B8%B2%E6%9F%93%E4%BD%9C%E4%B8%9A.html">Evaluate</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </body>
+</html>
